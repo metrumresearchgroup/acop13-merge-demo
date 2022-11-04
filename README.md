@@ -12,6 +12,8 @@ renv::restore()
 
 ~~~
 
+Users should respond "Yes" when asked to activate the project after calling `renv::restore()`
+
 For further information on using renv, please see: https://rstudio.github.io/renv/articles/renv.html#reproducibility
 
 Directory listing:
