@@ -24,7 +24,8 @@ Packages:
 Repos:
   - MPN: https://mpn.metworx.com/snapshots/stable/2022-08-31
 
-Library: rlibs # this will install to a folder called `rlibs` within the project directory
+Lockfile:
+    Type: renv
 
 Customizations:
   Packages:
