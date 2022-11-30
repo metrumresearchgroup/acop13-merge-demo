@@ -1,8 +1,9 @@
 
 library(bbr)
 library(here)
-options("bbr.bbi_exe_path" = "/data/apps/bbi")
-bbi_version()
+options("bbr.bbi_exe_path" = here("bin/bbi")) # use bbi inside project instead of default system version
+.v <- bbi_version()
+if (.v == "" || package_version(.v) < 3.2) use_bbi() # this will install the latest version
 
 MODEL_DIR <- here("model/pk")
 
