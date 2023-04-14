@@ -49,9 +49,10 @@ df107 <- nm_join(mod107)
 View(df107)
 
 # make some simple diagnostic plots with MetrumRG's pmplots package
-dv_pred(df107) 
-dv_ipred(df107)
-npde_time(df107)
+df_obs_only <- dplyr::filter(df107, EVID == 0) # filter to only observation records
+dv_pred(df_obs_only)
+dv_ipred(df_obs_only)
+npde_time(df_obs_only)
 
 # render the diagnostics with the Expo parameterized Rmd template. More details in: 
 # https://merge.metrumrg.com/expo/expo1-nonmem-foce/posts/model-diagnostics-param-reports.html
