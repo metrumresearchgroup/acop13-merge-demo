@@ -59,7 +59,7 @@ npde_time(df_obs_only)
 source(here("script/functions-diagnostics.R"))
 model_diagnostics(
   mod107,
-  .p = list(diagContCov = c("AGE"), diagCatCov = c("RF", "CP"))
+  .p = list(diagContCov = c("AGE", "WT"), diagCatCov = c("RF", "CP"))
 ) %>% browseURL()
 
 
@@ -74,7 +74,8 @@ mod107 <- mod107 %>%
 
 tags_diff(mod107)
 
-# create a run log table
+# create a run log table. More context and detail in:
+# https://merge.metrumrg.com/expo/expo1-nonmem-foce/posts/model-summary.html
 log_df <- run_log(MODEL_DIR)
 View(log_df)
 
@@ -85,7 +86,7 @@ View(log_df)
 
 # show nicely formatted table with MetrumRG's pmtables package
 log_df %>%
-  select(run, ofv, tags, notes) %>%
+  dplyr::select(run, ofv, tags, notes) %>%
   collapse_to_string(tags, notes) %>%
   pmtables::st_new() %>%
   pmtables::st_left(tags = col_ragged(8), notes = col_ragged(6)) %>% # fix column width for text-wrapping
