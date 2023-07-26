@@ -29,8 +29,6 @@ Lockfile:
 
 Customizations:
   Packages:
-    - bbr:
-        Suggests: true
     - pmplots:
         Suggests: true
     - pmtables:
