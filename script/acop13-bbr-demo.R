@@ -23,6 +23,20 @@ mod107 <- copy_model_from(mod106, "107") %>%
 # see difference in control streams
 model_diff(mod107)
 
+# inherit parameter estimates from parent model
+mod107 <- inherit_param_estimates(mod107, digits = 2)
+model_diff(mod107)
+
+mod107 <- tweak_initial_estimates(mod107)
+model_diff(mod107)
+
+# # we could've done this all in one call...
+# mod107 <- mod106 %>%
+#   copy_model_from("107") %>%
+#   update_model_id() %>%
+#   inherit_param_estimates() %>%
+#   tweak_initial_estimates()
+
 # submit the new model
 submit_model(mod107, .mode = "local", .wait = FALSE)
 
